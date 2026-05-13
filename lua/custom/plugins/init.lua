@@ -11,3 +11,13 @@ for file_name, type in vim.fs.dir(plugins_dir, { follow = true }) do
     require('custom.plugins.' .. module)
   end
 end
+
+vim.cmd [[
+:augroup CursorLine
+:    au!
+:    au VimEnter * setlocal cursorlineopt=both
+:    au WinEnter * setlocal cursorlineopt=both
+:    au BufWinEnter * setlocal cursorlineopt=both
+:    au WinLeave * setlocal cursorlineopt=number
+:augroup END
+]]
